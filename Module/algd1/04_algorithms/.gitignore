@@ -1,0 +1,17 @@
+# Build system
+target/
+bin/
+
+# Build system plugins
+dependency-reduced-pom.xml
+
+# IDE from JetBrains
+.idea
+*.iml
+
+# IDE from Eclipse
+.metadata/
+.recommenders/
+.settings/
+.classpath
+.project

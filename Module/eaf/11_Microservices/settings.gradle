@@ -1,0 +1,4 @@
+include 'moviemgmt'
+include 'usermgmt'
+include 'rentalmgmt'
+include 'registry'

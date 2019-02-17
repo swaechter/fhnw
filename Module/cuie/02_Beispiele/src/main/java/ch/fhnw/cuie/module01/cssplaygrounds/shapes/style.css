@@ -1,0 +1,28 @@
+ShapePane {
+    -fx-background-color: #bfd3e8;
+    -fx-padding: 20;
+    -fx-spacing: 20;
+}
+
+.linePlayground{
+    -fx-stroke: blue;
+    -fx-stroke-dash-array: 12 10 4 10;
+    -fx-stroke-dash-offset: 6;
+    -fx-stroke-width: 10;
+    -fx-stroke-line-cap: butt;
+}
+
+.rectPlayground{
+    -fx-stroke: blue;
+    -fx-fill: azure;
+    -fx-stroke-dash-array: 12 2 4 2;
+    -fx-stroke-dash-offset: 6;
+    -fx-stroke-width: 2.5;
+    -fx-stroke-line-cap: butt;
+}
+
+.arcPlayground{
+    -fx-stroke: #fde222;
+    -fx-fill: null;
+    -fx-stroke-width: 10;
+}

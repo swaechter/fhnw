@@ -1,0 +1,8 @@
+# Build system
+.gradle/
+build/
+out/
+
+# IDE from JetBrains
+.idea/
+*.iml

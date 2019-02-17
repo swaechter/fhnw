@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: maincontent(~{::section})}">
+<head>
+    <title>flashcard update</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/app.css}" href="../../static/css/app.css" />    
+</head>
+<body>
+    <section style="width: 60%; margin-left: 10em">
+        <form th:action="@{/questionnaires} + '/' + ${questionnaire.id}" th:object="${questionnaire}" method="post">
+            <input type="hidden" name="_method" value="PUT" />
+            <div class="form-group row">
+                <label class="col-md-2" for="title">Title:</label>
+                <div class="col-md-10">
+                    <input type="text" id="title" class="form-control" th:field="*{title}" th:errorclass="fieldError" autofocus="true" />
+                    <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="fieldErrorText">Incorrect title</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-2" for="description">Description:</label>
+                <div class="col-md-10">
+                    <input type="text" id="description" class="form-control" th:field="*{description}" th:errorclass="fieldError"></input>
+                    <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="fieldErrorText">Incorrect
+                        description</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <a class="btn btn-default" th:href="@{/questionnaires}">Cancel</a>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+    </section>
+</body>
+</html>

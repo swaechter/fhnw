@@ -1,0 +1,6 @@
+ch.fhnw.vesys.shared.local.LocalDriver
+ch.fhnw.vesys.clientsocket.SocketDriver localhost 1234
+ch.fhnw.vesys.clientservlet.ServletDriver localhost 1234
+ch.fhnw.vesys.clientsoap.SoapDriver localhost 1234
+ch.fhnw.vesys.clientrest.RestDriver localhost 1234
+ch.fhnw.vesys.clientrmi.RmiDriver localhost 1234

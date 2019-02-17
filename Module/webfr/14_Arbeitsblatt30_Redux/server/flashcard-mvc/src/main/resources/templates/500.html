@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: maincontent(~{::section})}">
+
+<head>
+    <title>flashcard</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../../webapp/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/app.css}" href="../../webapp/css/app.css" />
+</head>
+
+<body>
+    <section style="width: 60%; margin-left: 10em">
+        <h1>Database Error</h1>
+        <p>There are some conflicts using the database. Please contact the system administrator</p>
+
+        <div style="display: none">
+            Failed URL: <span th:text="${url}" th:remove="tag"></span>
+            Exception: <span th:text="${exception.message}" th:remove="tag"></span>
+            <span th:each="ste:${exception.stackTrace}" th:remove="tag"><span th:text="${ste}" th:remove="tag"></span></span>
+        </div>
+    </section>
+</body>
+
+</html>

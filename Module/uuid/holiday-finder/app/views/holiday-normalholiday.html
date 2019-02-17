@@ -1,0 +1,93 @@
+{% extends "index.html" %}
+
+{% block script %}
+<script>
+    $(document).ready(function () {
+        $('a.booklink').click(function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: "post",
+                url: "/user/isloggedin",
+                success: function (data) {
+                    window.location.href = $('a.booklink').attr('href');
+                },
+                error: function () {
+                    alert("Bitte melden Sie sich an oder registrieren sich.");
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}
+
+{% block title %}Normalsuche{% endblock %}
+
+{% block content %}
+<a href="/holiday/normalsearch">Zurück zu den Ferienangeboten</a>
+<div class="container-fluid">
+    <div class="list-group">
+        <div class="row list-group-item">
+            <div class="media col-md-3">
+                <figure class="pull-left">
+                    <img class="media-object img-rounded img-responsive" src="http://placehold.it/350x250"
+                         alt="placehold.it/350x250">
+                </figure>
+                <div class="text-center">
+                    <div>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+                    <p>Bewertung {{holiday.getRating()}} / 5</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4 class="list-group-item-heading">{{holiday.getName()}}</h4>
+                <p class="list-group-item-text">{{holiday.getDescription()}}</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Übersicht</div>
+                    <div class="panel-body">
+                        <p>Start <input type="date" name="startdate" value="{{search.getStartDate()}}" required></p>
+                        <p>Ende <input type="date" name="enddate" value="{{search.getEndDate()}}" required></p>
+                        <p>Personen
+                            <select name="person" required>
+                                <option disabled selected value>-</option>
+                                {% for i in 1..10 %}
+                                {% if search.getPerson() == i %}
+                                <option value="{{i}}" selected>{{i}}</option>
+                                {% else %}
+                                <option value="{{i}}">{{i}}</option>
+                                {% endif %}
+                                {% endfor %}
+                            </select>
+                        </p>
+                        <h2>{{holiday.getPrice()}} CHF</h2>
+                        <a class="btn btn-primary btn-lg btn-block booklink"
+                           href="/holiday/normalbook/{{holiday.getId()}}">Buchen</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="list-group">
+        {% set counter = 0 %}
+        {% for rating in holiday.getRatings() %}
+        {% if rating.getActive() == true %}
+        <div class="row list-group-item">
+            <p>Bewertung {{rating.getStars()}} / 5</p>
+            <p class="list-group-item-text">{{rating.getComment()}}</p>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% if counter == 0 %}
+        <div class="row list-group-item">
+            <p>Das Ferienangebot verfügt noch über keine Bewertungen.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

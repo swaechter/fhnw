@@ -1,0 +1,85 @@
+{% extends "index.html" %}
+
+{% block title %}Buchen{% endblock %}
+
+{% block content %}
+<a href="/holiday/holiday/{{holiday.getId()}}">Zurück zu den Ferienangeboten</a>
+<div class="panel panel-default">
+    <div class="panel-heading">Übersicht</div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form" action="/holiday/submitnormalbook/{{holiday.getId()}}" method="post">
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="name">Ferienangebot</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" id="name" name="name" value="{{holiday.getName()}}"
+                           disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="startdate">Startdatum</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="date" id="startdate" name="startdate"
+                           value="{{search.getStartDate()}}" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="enddate">Enddatum</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="date" id="enddate" name="enddate" value="{{search.getEndDate()}}"
+                           required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="person">Personen</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="person" name="person" required>
+                        <option disabled selected value>-</option>
+                        {% for i in 1..10 %}
+                        {% if search.getPerson() == i %}
+                        <option value="{{i}}" selected>{{i}}</option>
+                        {% else %}
+                        <option value="{{i}}">{{i}}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="vendor">Kreditkarte</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="vendor" name="vendor" required>
+                        <option disabled selected value>-</option>
+                        <option value="visa">Visa</option>
+                        <option value="mastercard">MasterCard</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="expiringdate">Ablaufdatum</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="month" id="expiringdate" name="expiringdate"
+                           placeholder="MM/YYYY" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="number">Kartennummer</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" id="number" name="number" placeholder="xxxx xxxx xxxx xxxx"
+                           required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="cvc">CVC</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" id="cvc" name="cvc" placeholder="xxx" required/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Buchen</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

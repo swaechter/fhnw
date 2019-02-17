@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+    <bean id="renderer" class="ch.fhnw.edu.eaf.springioc.renderer.StandardOutRenderer">
+        <property name="messageProvider" ref="provider"/>
+    </bean>
+
+    <bean id="rendere1" class="ch.fhnw.edu.eaf.springioc.renderer.StandardOutRenderer">
+        <property name="messageProvider" ref="provider"/>
+    </bean>
+
+    <bean id="provider" class="ch.fhnw.edu.eaf.springioc.providers.GrueziProvider"/>
+
+    <bean id="provider1" class="ch.fhnw.edu.eaf.springioc.providers.HelloWorldProvider"/>
+</beans>

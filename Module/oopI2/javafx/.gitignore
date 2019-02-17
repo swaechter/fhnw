@@ -1,0 +1,10 @@
+# Build system
+target/
+
+# IDE: IntelliJ Idea
+.idea/
+*.iml
+
+# Other files
+*.raf
+*.ini

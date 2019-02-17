@@ -1,0 +1,9 @@
+{% extends "index.html" %}
+
+{% block title %}Bestätigung{% endblock %}
+
+{% block content %}
+<h1>Bestätigung</h1>
+<p>Sie haben das Ferienangebot {{holiday.getName()}} erfolgreich gebucht.</p>
+<p>Sie können <a href="/holiday/holidays">hier</a> zu Ihren Buchungen gelanden</p>
+{% endblock %}

@@ -1,0 +1,17 @@
+1.) Architektur i386 hinzufügen:
+
+sudo dpkg --add-architecture i386
+sudo apt-get update
+
+2.) KVM installieren:
+
+sudo apt-get install qemu-kvm bridge-utils libvirt0
+sudo adduser swaechter kvm
+
+4.) Android Studio System Libraries verwenden:
+
+echo "export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1" >> /home/swaechter/.bashrc
+
+Danach am System ab- und wieder anmelden
+
+3.) Android Studio installieren gemäss "AB1 Environment.pdf" installieren

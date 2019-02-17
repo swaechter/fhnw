@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Simple Service
+Bundle-SymbolicName: ch.fhnw.swa.osgi.firstbundle.service
+Bundle-Version: 2.0.0
+Bundle-Vendor: Simon Wächter
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

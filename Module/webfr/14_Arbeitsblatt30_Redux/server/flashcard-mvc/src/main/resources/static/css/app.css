@@ -1,0 +1,8 @@
+input.fieldError {
+	border-color: red;
+}
+
+.fieldErrorText {
+	color: red;
+	font-size: 12px;
+}

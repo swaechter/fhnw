@@ -1,0 +1,17 @@
+2017-03-29 13:19:34,435 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2017-03-29 13:57:04,924 [Start Help Server] INFO  org.eclipse.jetty.util.log - Logging initialized @2278486ms
+2017-03-29 13:57:05,027 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-9.3.9.v20160517
+2017-03-29 13:57:05,077 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@3529d165{/help,null,AVAILABLE}
+2017-03-29 13:57:05,083 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@55b0e236{HTTP/1.1,[http/1.1]}{127.0.0.1:46501}
+2017-03-29 13:57:05,083 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started @2278646ms
+2017-03-29 14:43:16,738 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@55b0e236{HTTP/1.1,[http/1.1]}{127.0.0.1:0}
+2017-03-29 14:43:16,775 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@3529d165{/help,null,UNAVAILABLE}
+2017-03-29 14:43:36,381 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2017-03-29 14:52:00,818 [Start Help Server] INFO  org.eclipse.jetty.util.log - Logging initialized @514756ms
+2017-03-29 14:52:00,914 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-9.3.9.v20160517
+2017-03-29 14:52:00,962 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@6643b1ad{/help,null,AVAILABLE}
+2017-03-29 14:52:00,969 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@306b5106{HTTP/1.1,[http/1.1]}{127.0.0.1:40421}
+2017-03-29 14:52:00,970 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started @514908ms
+2017-03-29 15:18:43,541 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@306b5106{HTTP/1.1,[http/1.1]}{127.0.0.1:0}
+2017-03-29 15:18:43,555 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@6643b1ad{/help,null,UNAVAILABLE}
+2017-04-05 08:18:20,986 [Worker-1] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.

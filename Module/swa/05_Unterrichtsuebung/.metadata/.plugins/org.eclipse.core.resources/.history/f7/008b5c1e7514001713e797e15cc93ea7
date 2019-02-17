@@ -1,0 +1,7 @@
+package ch.fhnw.swa.osgi.firstbundle.service;
+
+public class SimpleService {
+
+	private SimpleService() {
+	}
+}

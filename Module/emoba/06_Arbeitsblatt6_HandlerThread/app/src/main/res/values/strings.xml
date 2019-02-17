@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AB6</string>
+    <string name="start_button">Start Coloring</string>
+    <string name="stop_button">Stop Coloring</string>
+    <string name="message_button">Text Message</string>
+    <string name="pingpong_button">PING PONG</string>
+</resources>

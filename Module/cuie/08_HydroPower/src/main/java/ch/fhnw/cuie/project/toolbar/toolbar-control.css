@@ -1,0 +1,21 @@
+.toolbar-control { /* Eigentliche Toolbar */
+    -fx-background-color: #1CA3EC; /* Hintergrundfarbe der Toolbar */
+}
+
+.toolbar-control .button-icon { /* Buttons mit einem Icon */
+    -fx-font-family: FontAwesome; /* Font, welche via Unicode PUA die Icons zur Verfügung stellt */
+    -fx-font-size: 18; /* Icongrösse */
+    -fx-text-fill: white; /* Aktive Iconfarbe */
+    -fx-background-color: transparent; /* Kein Buttonbackground */
+}
+
+.toolbar-control .button-text { /* Buttons mit einem Text */
+    -fx-font-size: 16; /* Textgrösse - bewusst 2px kleiner wählen um nicht zu gross zu wirken */
+    -fx-text-fill: white; /* Aktive Textfarbe */
+    -fx-background-color: transparent; /* Kein Buttonbackground */
+}
+
+.toolbar-control .textfield { /* Textfeld */
+    -fx-border-radius: 10 10 10 10; /* Abgerundete Ecken mit 10px Radius */
+    -fx-background-radius: 10 10 10 10;
+}

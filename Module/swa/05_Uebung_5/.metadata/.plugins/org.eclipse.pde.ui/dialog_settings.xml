@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="" key="targetName"/>
+	<item value="false" key="apiAnalysis"/>
+	<item value="false" key="rcpPlugin"/>
+	<item value="true" key="osgiProject"/>
+	<item value="false" key="generatePluginActivator"/>
+	<list key="providers">
+		<item value="Simon Wächter"/>
+	</list>
+	<section name="PDEFormActionManager">
+	</section>
+	<section name="quick_assist_proposal_size">
+	</section>
+</section>

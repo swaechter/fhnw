@@ -1,0 +1,11 @@
+package ch.fhnw.swa.osgi.firstbundle.client;
+
+import ch.fhnw.swa.osgi.firstbundle.service.SimpleService;
+
+public class SimpleClient {
+	
+	public SimpleClient() {
+		SimpleService simpleservice = new SimpleService();
+		simpleservice.writeString("Java Module Client");
+	}
+}

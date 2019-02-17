@@ -1,0 +1,160 @@
+{% extends "index.html" %}
+
+{% block script %}
+<script>
+    $(document).ready(function () {
+        $('button.normalsearch').click(function (event) {
+            var dataarray = $('form.searchform').serializeArray();
+            event.preventDefault();
+            $.ajax({
+                type: "post",
+                url: "/holiday/submitsearch",
+                data: dataarray,
+                success: function (data) {
+                    window.location.href = '/holiday/normalsearch';
+                },
+                error: function () {
+                    alert("Es konnte nicht nach einem Ferienangebot gesucht werden.");
+                }
+            });
+        });
+
+        $('button.surprisesearch').click(function (event) {
+            var dataarray = $('form.searchform').serializeArray();
+            event.preventDefault();
+            $.ajax({
+                type: "post",
+                url: "/holiday/submitsearch",
+                data: dataarray,
+                success: function (data) {
+                    window.location.href = '/holiday/surprisesearch';
+                },
+                error: function () {
+                    alert("Es konnte nicht nach einem Ferienangebot gesucht werden.");
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}
+
+{% block title %}Holiday{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1>Holiday Finder</h1>
+    <form class="form-horizontal searchform" role="form" name="searchform" action="#" method="post">
+        <p>Herzlich willkommen bei Holiday Finder! Mit uns können Sie entweder genau nach ihren gewünschten Ferien
+            suchen oder aber Rahmenbedingungen angeben und sich mit einer Surprise Holiday überraschen lassen. Um ein
+            aussagekräftiges Angebot für Sie zusammenstellen zu können, benötigen wir ein paar Angaben von
+            Ihnen.</p>
+        <div class="panel panel-default">
+            <div class="panel-heading">Allgemein</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="startdate">Startdatum</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="date" id="startdate" name="startdate"
+                               value="{{search.getStartDate()}}" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="enddate">Enddatum</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="date" id="enddate" name="enddate"
+                               value="{{search.getEndDate()}}" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="person">Personen</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="person" name="person" required>
+                            <option disabled selected value>-</option>
+                            {% for i in 1..10 %}
+                            {% if search.getPerson() == i %}
+                            <option value="{{i}}" selected>{{i}}</option>
+                            {% else %}
+                            <option value="{{i}}">{{i}}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Region</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="continent">Kontinent</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="continent" name="continent" required>
+                            <option disabled selected value>-</option>
+                            {% set continents = search.getContinents() %}
+                            {% for i in 1..continents|length %}
+                            {% if search.getContinent() == i %}
+                            <option value="{{i}}" selected>{{continents[i]}}</option>
+                            {% else %}
+                            <option value="{{i}}">{{continents[i]}}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Aktivitäten</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="activity">Urlaubstyp</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="activity" name="activity" required>
+                            <option disabled selected value>-</option>
+                            {% set activities = search.getActivities() %}
+                            {% for i in 1..activities|length %}
+                            {% if search.getActivity() == i %}
+                            <option value="{{i}}" selected>{{activities[i]}}</option>
+                            {% else %}
+                            <option value="{{i}}">{{activities[i]}}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Unterkunft</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="accommodation">Hotelsterne</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="accommodation" name="accommodation" required>
+                            <option disabled selected value>-</option>
+                            {% set accommodations = search.getAccommodations() %}
+                            {% for i in 1..accommodations|length %}
+                            {% if search.getAccommodation() == i %}
+                            <option value="{{i}}" selected>{{accommodations[i]}}</option>
+                            {% else %}
+                            <option value="{{i}}">{{accommodations[i]}}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-primary btn-lg btn-block normalsearch">Normale Suche
+                </button>
+            </div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-primary btn-lg btn-block surprisesearch">Surprise Suche
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

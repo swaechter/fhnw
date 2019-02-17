@@ -1,0 +1,13 @@
+package ch.fhnw.swa.osgi.firstbundle.service;
+
+public class ServiceIdHolder {
+
+	private final String serviceid = "POJO-Version";
+
+	private ServiceIdHolder() {
+	}
+
+	public String getServiceId() {
+		return serviceid;
+	}
+}

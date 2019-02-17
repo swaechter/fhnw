@@ -1,0 +1,12 @@
+# Build system
+node_modules/
+.gradle/
+build/
+out/
+
+# IDE from JetBrains
+.idea/
+*.iml
+
+# Log files
+*.log

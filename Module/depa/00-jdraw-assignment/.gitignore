@@ -1,0 +1,21 @@
+# Build system
+target/
+build/
+bin/
+out/
+
+gradle/
+.gradle
+gradlew
+gradlew.bat
+
+# IDE from JetBrains
+.idea
+*.iml
+
+# IDE from Eclipse
+.metadata/
+.recommenders/
+.settings/
+.classpath
+.project

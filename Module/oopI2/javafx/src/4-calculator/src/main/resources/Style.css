@@ -1,0 +1,7 @@
+.button:hover {
+    -fx-background-color: derive(grey, -50%);
+}
+
+#equal {
+    -fx-background-color: orange;
+}

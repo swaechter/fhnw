@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'FontAwesome';
+    src: url("fontawesome-webfont.ttf");
+}
+
+@font-face {
+    font-family: 'Roboto Regular';
+    src: url(Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Roboto Bold';
+    src: url(Roboto/Roboto-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Roboto Thin';
+    src: url(Roboto/Roboto-Thin.ttf);
+}
+
+@font-face {
+    font-family: 'Roboto Light';
+    src: url(Roboto/Roboto-Light.ttf);
+}
+
+@font-face {
+    font-family: 'DS-Digital';
+    src: url(ds_digital/DS-DIGI.TTF);
+}
+
+
+@font-face {
+    font-family: 'Lato Light';
+    src: url(Lato/Lato-Lig.ttf);
+}
+
+@font-face {
+    font-family: 'Lato Regular';
+    src: url(Lato/Lato-Reg.ttf);
+}
+
+@font-face {
+    font-family: 'Lato Black';
+    src: url(Lato/Lato-Bla.ttf);
+}
+
+@font-face {
+    font-family: 'Lato Bold';
+    src: url(Lato/Lato-Bol.ttf);
+}
+
+@font-face {
+    font-family: 'Lato Hairline';
+    src: url(Lato/Lato-Hai.ttf);
+}
+
+

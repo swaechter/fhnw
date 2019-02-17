@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Restaurant Client
+Bundle-SymbolicName: ch.fhnw.swa.restaurant.client
+Bundle-Version: 1.0.0
+Bundle-Vendor: Simon Wächter
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

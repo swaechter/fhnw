@@ -1,0 +1,4 @@
+INDEX VERSION 1.130+/home/swaechter/Downloads/fhnw/Module/swa/05_Uebung_5/.metadata/.plugins/org.eclipse.jdt.core
+2656336317.index
+1753671279.index
+3201583762.index

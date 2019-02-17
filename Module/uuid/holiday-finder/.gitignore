@@ -1,0 +1,11 @@
+# Build system
+composer.lock
+
+# Libraries
+vendor/
+
+# Editor
+.idea/
+
+# Data
+*.sqlite

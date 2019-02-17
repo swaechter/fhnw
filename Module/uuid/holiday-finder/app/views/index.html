@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="/vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/vendor/components/jquery/jquery.min.js"></script>
+    <script src="/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('form.loginform').submit(function (event) {
+                var dataarray = $('form.loginform').serializeArray();
+                event.preventDefault();
+                $.ajax({
+                    type: "post",
+                    url: "/user/login",
+                    data: dataarray,
+                    success: function (data) {
+                        location.reload();
+                    },
+                    error: function () {
+                        alert("Ihre Benutzerdaten konnten nicht gefunden werden oder aber das Passwort stimmt nicht.");
+                    }
+                });
+            });
+
+            $('form.registrationform').submit(function (event) {
+                var dataarray = $('form.registrationform').serializeArray();
+                event.preventDefault();
+                $.ajax({
+                    type: "post",
+                    url: "/user/register",
+                    data: dataarray,
+                    success: function (data) {
+                        location.reload();
+                    },
+                    error: function () {
+                        alert("Sie konnten nicht registriert werden.");
+                    }
+                });
+            });
+
+            $('a.logoutlink').click(function (event) {
+                event.preventDefault();
+                $.ajax({
+                    url: "/user/logout",
+                    success: function (data) {
+                        location.reload();
+                    },
+                    error: function () {
+                        location.reload();
+                    }
+                });
+            });
+
+            $('form.forgetform').submit(function (event) {
+                event.preventDefault();
+                alert("Sie werden in Kürze eine Mail zum Zurücksetzen Ihres Passwortes erhalten.");
+                $('#forgetmodel').modal('hide');
+            });
+        });
+    </script>
+    {% block script %}{% endblock %}
+    <style>
+        * {
+            border-radius: 0 !important;
+        }
+
+        body {
+            margin: 20px;
+            background: url(/public/background.jpg) no-repeat center center fixed;
+            background-size: cover;
+            border: none;
+        }
+
+        .site {
+            padding-left: 0px;
+            padding-right: 0px;
+            border: 0px;
+        }
+
+        .navigation {
+            margin-bottom: 0px;
+            border: none;
+            background-color: #f60;
+        }
+
+        .content {
+            padding: 10px;
+            background-color: aliceblue;
+        }
+
+        .footer {
+            margin-bottom: 0px;
+            border: none;
+            background-color: #f60;
+        }
+
+        .nav.navbar-nav li a {
+            color: white;
+        }
+
+        .navbar-default .navbar-brand {
+            color: white;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+    </style>
+    {% block style %}{% endblock %}
+</head>
+<body>
+<div class="site container">
+    <div class="navigation navbar navbar-default" role="headernavigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#headernavigation">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/holiday/home">Holiday Finder</a>
+        </div>
+        <div class="navbar-collapse collapse" id="headernavigation">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="/holiday/normalsearch">Normal</a></li>
+                <li><a href="/holiday/surprisesearch">Surprise</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if not UserStatus %}
+                <li><a href="#loginmodel" role="button" data-toggle="modal" rel="tooltip">Anmelden</a></li>
+                <li><a href="#registrationmodel" role="button" data-toggle="modal" rel="tooltip">Registrieren</a></li>
+                {% else %}
+                <li><a href="/holiday/holidays">Buchungen</a></li>
+                <li><a class="logoutlink" href="#">Abmelden</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <div class="content">
+        <div id="content">{% block content %}{% endblock %}</div>
+    </div>
+    <div class="footer footernavigation navbar navbar-default" role="footernavigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#footernavigation">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="footernavigation">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="/help/help">Hilfe</a></li>
+                <li><a href="/help/impressum">Impressum</a></li>
+                <li><a href="/help/contact">Kontakt</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal fade" id="loginmodel" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Schliessen</span>
+                    </button>
+                    <h4 class="modal-title">Anmelden</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal loginform" role="form" name="loginform" action="#" method="post">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <p>Bitte melden Sie sich mit Ihren Benutzerdaten am System an. Sollten Sie Ihr Passwort
+                                    vergessen haben, können Sie es zurücksetzen lassen und ein neues anfordern: <a
+                                            href="#forgetmodel" role="button" data-toggle="modal" rel="tooltip">Passwort
+                                        zurücksenden</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="email">Email</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="email" id="email" name="email" placeholder="Email"
+                                       required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="password">Passwort</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="password" id="password" name="password"
+                                       placeholder="Passwort" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="rememberme"/> Anmeldung merken
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Anmelden</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="registrationmodel" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Schliessen</span>
+                    </button>
+                    <h4 class="modal-title">Registrieren</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal registrationform" role="form" action="#" method="post">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="name">Name</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="name" id="name" name="name" placeholder="Name"
+                                       required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="emaila">Email</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="email" id="emaila" name="emaila" placeholder="Email"
+                                       required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="emailb">Email bestätigen</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="email" id="emailb" name="emailb" placeholder="Email"
+                                       required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="passworda">Passwort</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="password" id="passworda" name="passworda"
+                                       placeholder="Passwort" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="passwordb">Passwort bestätigen</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="password" id="passwordb" name="passwordb"
+                                       placeholder="Passwort" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="address">Adresse</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" id="address" name="address"
+                                       placeholder="Adresse" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="zip">Postleitzahl</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" id="zip" name="zip"
+                                       placeholder="Postleitzahl" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="town">Stadt</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" id="town" name="town" placeholder="Stadt"
+                                       required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="agbaccepted"/> Allgemeine Geschäftsbedigungen
+                                        akzeptieren
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Registrieren</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="forgetmodel" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Schliessen</span>
+                    </button>
+                    <h4 class="modal-title">Passwort zurücksetzen</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal forgetform" role="form" name="forgetform" action="#" method="post">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <p>Bitte geben Sie Ihre Emailaddresse an. Sie erhalten dann eine Mail, mittels welcher
+                                    Sie Ihr Passwort zurücksenden können.</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="email">Email</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="email" id="email" name="email" placeholder="Email"
+                                       required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Passwort zurücksetzen
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

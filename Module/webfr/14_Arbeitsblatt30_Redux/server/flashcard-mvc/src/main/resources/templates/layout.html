@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="maincontent(content)">
+<head>
+    <title>Flashcard App</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/css/app.css}" href="../static/css/app.css" />
+</head>
+<body>
+    <div class="container-fluid">
+		<div th:replace="~{header :: header}">Fake header</div>
+		<div th:replace="${content}">Fake content</div>
+		<div th:replace="~{footer :: footer}">Fake footer</div>
+    </div>
+</body>
+</html>

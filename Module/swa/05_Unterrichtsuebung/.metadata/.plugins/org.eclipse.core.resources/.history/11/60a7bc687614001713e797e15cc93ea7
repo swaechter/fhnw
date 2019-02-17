@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Simple Client
+Bundle-SymbolicName: ch.fhnw.swa.osgi.firstbundle.client
+Bundle-Version: 1.0.0
+Bundle-Vendor: Simon Wächter
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: ch.fhnw.swa.osgi.firstbundle.service;bundle-version="1.0.0"

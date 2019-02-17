@@ -1,0 +1,96 @@
+Titel: Einführung komplexerer Kontrollstrukturen wie switch/case und elseif
+
+=== Problematik ===
+
+Im Gegensatz zu Hochsprachen wie C++ oder Java, verfügt IML als Lehrsprache über keine komplexeren Kontrollstrukturen wie switch/case oder einschiebbare elseif Bedingungen (Nur if/else). Leider gibt es auch keine Alternativen wie beispielsweise das aus Haskell bekannte und mächtige Pattern Matching.
+
+Das Fehlen dieser Kontrollstrukturen führt dazu, dass komplexere Bedingungen in verschachtelte if/else Anweisungen umformuliert werden müssen:
+
+func printNumber(number:int)
+	if number == 1 then
+		// Ausgabe: Du bist meine Nummer eins
+	else
+		if number == 2 then
+			// Ausgabe: Du bist der ewige Zweite
+		else
+			// Ausgabe: Deine Nummer kenne ich nicht einmal
+		endif
+
+	endif
+endfun
+
+Alternativ können auch Abfragen analog dem eary-return Pattern verwendet werden (Da man nicht frühzeitig eine Methode abbrechen kann, muss ein Flag als Schutz verwendet werden):
+
+func printNumber(number:int)
+	flag init := false; // Flag, um die weitere Ausführung zu verhindern
+
+	if number == 1 then
+		// Ausgabe: Du bist meine Nummer eins
+		flag = true;
+	endif
+    
+    if number == 2 &? flag == false then
+		// Ausgabe: Du bist der ewige Zweite
+		flag = true;
+	endif
+	
+	if number != 1 &? number != 2 &? flag == false then
+		// Ausgabe: Deine Nummer kenne ich nicht einmal
+	endif
+endfun
+
+Beide genannten Ansätze lösen das Problem, führen aber zu sehr schlecht lesbaren Code oder duplizieren gewisse Abfragen, welche man dann zusammenfassen müssten.
+
+=== Lösung ===
+
+Wir möchten deshalb die bisherigen Kontrollstrukturen aufbohren und ein elseif einführen:
+
+func printNumber(number:int)
+	if number == 1 then
+		// Ausgabe: Du bist meine Nummer eins
+    elseif number == 2 then
+		// Ausgabe: Du bist der ewige Zweite	
+	else
+		// Ausgabe: Deine Nummer kenne ich nicht einmal
+	endif
+endfun
+
+Basierend auf dem elseif kann nun auch ein typensicheres switch/case eingeführt werden (Ein case true würde zu einem Fehler führen):
+
+func printNumber(number:int)
+	switch number
+		case 1 then
+			// Ausgabe: Du bist meine Nummer eins
+		case 2 then
+			// Ausgabe: Du bist der ewige Zweite
+		default then
+			// Ausgabe: Deine Nummer kenne ich nicht einmal
+	endswitch
+endfun
+
+Zu beachten ist, dass ein case Block bei Aufruf abschliessend ist und nicht zum nächsten case durchfällt (Diese sehr schlechte Designentscheidung aus C möchten wir nicht weiterverfolgen). Folglich gibt es in einem switch/case keine break Anweisung.
+
+Optional kann ein default verwendet werden, auf welches zurückgegriffen wird, falls keine Bedingung erfüllt werden könnte.
+
+=== Syntax ===
+
+Für elseif:
+
+if <Expression> then
+	<Code>
+elseif <Expression> then
+	<Code>
+else
+	<Code>
+endif
+
+Für switch/case:
+
+switch <Identifier/Literal des Typ T>
+	case <Identifier/Literal des Typ T> then
+		<Code>
+	case <Identifier/Literal des Typ T> then
+		<Code>
+	default
+		<Code>
+endswitch

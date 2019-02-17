@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="2.7.2.255" version="1.0">
+This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
+<lib desc="#Wiring" name="0">
+    <tool name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="5"/>
+      <a name="incoming" val="5"/>
+    </tool>
+    <tool name="Pin">
+      <a name="width" val="4"/>
+    </tool>
+    <tool name="Probe">
+      <a name="facing" val="south"/>
+    </tool>
+    <tool name="Tunnel">
+      <a name="width" val="4"/>
+    </tool>
+    <tool name="Clock">
+      <a name="facing" val="north"/>
+    </tool>
+    <tool name="Constant">
+      <a name="facing" val="south"/>
+    </tool>
+  </lib>
+  <lib desc="#Gates" name="1"/>
+  <lib desc="#Plexers" name="2"/>
+  <lib desc="#Arithmetic" name="3"/>
+  <lib desc="#Memory" name="4">
+    <tool name="ROM">
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
+  <lib desc="#I/O" name="5"/>
+  <lib desc="#Base" name="6">
+    <tool name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+  </lib>
+  <lib desc="file#module_tom.circ" name="7"/>
+  <main name="mul_by_2"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool lib="6" map="Button2" name="Menu Tool"/>
+    <tool lib="6" map="Button3" name="Menu Tool"/>
+    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool lib="6" name="Poke Tool"/>
+    <tool lib="6" name="Edit Tool"/>
+    <tool lib="6" name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+    <sep/>
+    <tool lib="0" name="Pin">
+      <a name="tristate" val="false"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </tool>
+    <tool lib="1" name="NOT Gate"/>
+    <tool lib="1" name="AND Gate"/>
+    <tool lib="1" name="OR Gate"/>
+  </toolbar>
+  <circuit name="mul_by_2">
+    <a name="circuit" val="mul_by_2"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <path d="M118,52 Q122,62 126,52" fill="none" stroke="#808080" stroke-width="2"/>
+      <rect fill="none" height="40" stroke="#000000" stroke-width="2" width="158" x="52" y="50"/>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="73" y="77">Input</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="175" y="67">Output</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="171" y="83">Overflow</text>
+      <text font-family="SansSerif" font-size="13" font-weight="bold" text-anchor="middle" x="119" y="77">Mul 2</text>
+      <circ-port height="8" pin="80,120" width="8" x="46" y="66"/>
+      <circ-port height="10" pin="260,60" width="10" x="205" y="55"/>
+      <circ-port height="10" pin="260,110" width="10" x="205" y="75"/>
+      <circ-anchor facing="east" height="6" width="6" x="207" y="57"/>
+    </appear>
+    <wire from="(100,70)" to="(190,70)"/>
+    <wire from="(80,120)" to="(120,120)"/>
+    <wire from="(140,110)" to="(260,110)"/>
+    <wire from="(140,80)" to="(190,80)"/>
+    <wire from="(140,90)" to="(190,90)"/>
+    <wire from="(140,100)" to="(190,100)"/>
+    <wire from="(210,60)" to="(260,60)"/>
+    <comp lib="0" loc="(120,120)" name="Splitter">
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+    </comp>
+    <comp lib="0" loc="(260,60)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="4"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(260,110)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(80,120)" name="Pin">
+      <a name="width" val="4"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(210,60)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+    </comp>
+    <comp lib="0" loc="(100,70)" name="Constant">
+      <a name="value" val="0x0"/>
+    </comp>
+  </circuit>
+  <circuit name="mul_by_5">
+    <a name="circuit" val="mul_by_5"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <path d="M118,52 Q122,62 126,52" fill="none" stroke="#808080" stroke-width="2"/>
+      <rect fill="none" height="40" stroke="#000000" stroke-width="2" width="170" x="50" y="50"/>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="78" y="76">Input</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="183" y="66">Output</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="178" y="85">Overflow</text>
+      <text font-family="SansSerif" font-size="13" font-weight="bold" text-anchor="middle" x="123" y="77">Mul 5</text>
+      <circ-port height="8" pin="90,290" width="8" x="46" y="66"/>
+      <circ-port height="10" pin="420,200" width="10" x="215" y="55"/>
+      <circ-port height="10" pin="470,320" width="10" x="215" y="75"/>
+      <circ-anchor facing="east" height="6" width="6" x="217" y="57"/>
+    </appear>
+    <wire from="(140,220)" to="(200,220)"/>
+    <wire from="(220,190)" to="(220,200)"/>
+    <wire from="(260,210)" to="(310,210)"/>
+    <wire from="(150,230)" to="(200,230)"/>
+    <wire from="(360,320)" to="(470,320)"/>
+    <wire from="(260,210)" to="(260,240)"/>
+    <wire from="(140,220)" to="(140,250)"/>
+    <wire from="(150,230)" to="(150,260)"/>
+    <wire from="(170,270)" to="(170,300)"/>
+    <wire from="(100,200)" to="(200,200)"/>
+    <wire from="(380,200)" to="(420,200)"/>
+    <wire from="(140,250)" to="(240,250)"/>
+    <wire from="(140,270)" to="(170,270)"/>
+    <wire from="(150,340)" to="(310,340)"/>
+    <wire from="(90,290)" to="(120,290)"/>
+    <wire from="(150,280)" to="(240,280)"/>
+    <wire from="(150,260)" to="(240,260)"/>
+    <wire from="(220,200)" to="(310,200)"/>
+    <wire from="(140,260)" to="(150,260)"/>
+    <wire from="(140,280)" to="(150,280)"/>
+    <wire from="(170,300)" to="(310,300)"/>
+    <wire from="(170,270)" to="(240,270)"/>
+    <wire from="(150,280)" to="(150,340)"/>
+    <wire from="(70,210)" to="(200,210)"/>
+    <comp lib="0" loc="(260,240)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+    </comp>
+    <comp lib="0" loc="(100,200)" name="Constant">
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="7" loc="(380,190)" name="Add"/>
+    <comp lib="0" loc="(120,290)" name="Splitter">
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+    </comp>
+    <comp lib="0" loc="(70,210)" name="Constant">
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="0" loc="(420,200)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="4"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(90,290)" name="Pin">
+      <a name="width" val="4"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(470,320)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(220,190)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+    </comp>
+    <comp lib="1" loc="(360,320)" name="OR Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+  </circuit>
+</project>

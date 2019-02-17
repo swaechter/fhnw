@@ -1,0 +1,19 @@
+1.) Node.js und NPM installieren
+
+2.) Tools installieren:
+
+sudo npm install -g create-react-native-app
+
+3.) Emulator starten:
+
+/home/swaechter/Android/Sdk/emulator/emulator -avd Pixel_2_API_25
+
+4.) Applikation erstellen:
+
+create-react-nagive-app foo
+cd foo
+
+5.) Applikation starten:
+
+npm starten
+Danach "a" für Android auswählen

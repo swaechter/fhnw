@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1490786817846_1" label="ch.fhnw.swa.osgi" name="ch.fhnw.swa.osgi"/>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1490786839336_2" label="ch.fhnw.swa" name="ch.fhnw.swa">
+<item elementID="=ch.fhnw.swa.osgi.firstbundle.client 1.0.0" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.fhnw.swa.osgi.firstbundle.client 2.0.0" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.fhnw.swa.osgi.firstbundle.service 1.0.0" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.fhnw.swa.osgi.firstbundle.service 2.0.0" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1490786374897_0" label="Window Working Set" name="Aggregate for window 1490786374896"/>
+<mruList name="ch.fhnw.swa"/>
+<mruList name="ch.fhnw.swa.osgi"/>
+</workingSetManager>

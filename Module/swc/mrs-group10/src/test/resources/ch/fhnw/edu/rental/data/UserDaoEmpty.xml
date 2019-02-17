@@ -1,0 +1,7 @@
+<dataset>
+	<table name="clients">
+		<column>id</column>
+		<column>firstname</column>
+		<column>name</column>
+	</table>
+</dataset>

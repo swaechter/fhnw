@@ -1,0 +1,200 @@
+{% extends "index.html" %}
+
+{% block script %}
+<script>
+    $(document).ready(function () {
+        $('a.refresh').click(function (event) {
+            event.preventDefault();
+            var map = {};
+            $("input").each(function () {
+                map[$(this).attr("name")] = $(this).val();
+            });
+            $("select").each(function () {
+                map[$(this).attr("name")] = $(this).val();
+            });
+            var url = "/holiday/submitsearch/{{id}}";
+            $.ajax({
+                type: "post",
+                url: url,
+                data: map,
+                success: function (data) {
+                    location.reload();
+                },
+                error: function () {
+                    alert("Die Suchkriterien konnte nicht gespeichert werden.");
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}
+
+{% block style %}
+<style>
+    .description {
+        height: 140px;
+        line-height: 20px;
+        overflow: hidden;
+    }
+</style>
+{% endblock %}
+
+{% block title %}Normalsuche{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <p>
+                <a class="btn btn-primary btn-lg btn-block refresh" href="/holiday/normalsearch">Aktualisieren</a>
+            </p>
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapsegeneral">Allgemein</a>
+                        </h4>
+                    </div>
+                    <div id="collapsegeneral" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <p>Start <input type="date" name="startdate" value="{{search.getStartDate()}}" required></p>
+                            <p>Ende <input type="date" name="enddate" value="{{search.getStartDate()}}" required></p>
+                            <p>Personen
+                                <select name="person" required>
+                                    <option disabled selected value>-</option>
+                                    {% for i in 1..10 %}
+                                    {% if search.getPerson() == i %}
+                                    <option value="{{i}}" selected>{{i}}</option>
+                                    {% else %}
+                                    <option value="{{i}}">{{i}}</option>
+                                    {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapseregion">Region</a>
+                        </h4>
+                    </div>
+                    <div id="collapseregion" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <p>Kontinent
+                                <select name="continent" required>
+                                    <option disabled selected value>-</option>
+                                    {% set continents = search.getContinents() %}
+                                    {% for i in 1..continents|length %}
+                                    {% if search.getContinent() == i %}
+                                    <option value="{{i}}" selected>{{continents[i]}}</option>
+                                    {% else %}
+                                    <option value="{{i}}">{{continents[i]}}</option>
+                                    {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapseactivities">Aktivitäten</a>
+                        </h4>
+                    </div>
+                    <div id="collapseactivities" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <p>Aktivität
+                                <select name="activity" required>
+                                    <option disabled selected value>-</option>
+                                    {% set activities = search.getActivities() %}
+                                    {% for i in 1..activities|length %}
+                                    {% if search.getActivity() == i %}
+                                    <option value="{{i}}" selected>{{activities[i]}}</option>
+                                    {% else %}
+                                    <option value="{{i}}">{{activities[i]}}</option>
+                                    {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapseaccommodation">Unterkunft</a>
+                        </h4>
+                    </div>
+                    <div id="collapseaccommodation" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <p>Hotelsterne
+                                <select name="accommodation" required>
+                                    <option disabled selected value>-</option>
+                                    {% set accommodations = search.getAccommodations() %}
+                                    {% for i in 1..accommodations|length %}
+                                    {% if search.getAccommodation() == i %}
+                                    <option value="{{i}}" selected>{{accommodations[i]}}</option>
+                                    {% else %}
+                                    <option value="{{i}}">{{accommodations[i]}}</option>
+                                    {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="list-group">
+                {% if holidays|length > 0 %}
+                {% for holiday in holidays %}
+                <div class="row list-group-item">
+                    <div class="media col-md-3">
+                        <figure class="pull-left">
+                            <img class="media-object img-rounded img-responsive" src="http://placehold.it/350x250"
+                                 alt="placehold.it/350x250">
+                        </figure>
+                        <div class="text-center">
+                            <div>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </div>
+                            <p>Bewertung {{holiday.getStars()}} / 5</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="list-group-item-heading">{{holiday.getName()}}</h4>
+                        <p class="list-group-item-text description">{{holiday.getDescription()}}</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h2>{{holiday.getPrice()}} CHF</h2>
+                        <a class="btn btn-primary btn-lg btn-block"
+                           href="/holiday/normalholiday/{{holiday.getId()}}">Details</a>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="row list-group-item">
+                    <div class="col-md-12">
+                        <p>Es sind momentan keine Ferienangebote verfügbar.</p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,2 @@
+insert into rentals (rental_id, movie_id, user_id, rental_rentaldate, rental_rentaldays) values (1, 1, 1, '2015-09-09', 24);
+insert into rentals (rental_id, movie_id, user_id, rental_rentaldate, rental_rentaldays) values (2, 2, 2, '2015-09-09', 365);

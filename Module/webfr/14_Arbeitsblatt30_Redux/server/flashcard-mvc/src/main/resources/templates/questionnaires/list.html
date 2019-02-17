@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: maincontent(~{::section})}">
+
+<head>
+	<title>flashcard</title>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../../static/css/bootstrap.min.css" />
+	<link rel="stylesheet" th:href="@{/css/app.css}" href="../../static/css/app.css" />
+</head>
+
+<body>
+	<section>
+		<a class="btn btn-success float-right" href="?form">
+			Add Questionnaire
+		</a>
+		<h3>Questionnaires</h3>
+		<div th:if="${questionnaires.isEmpty()}">
+			<h2 style="text-align: center">No Questionnaires found</h2>
+		</div>
+		<div style="padding-top: 10px;">
+			<table class="table table-condensed table-hover">
+				<tbody>
+					<tr th:each="questionnaire : ${questionnaires}">
+						<td colspan="1" style="vertical-align: middle;" th:text="${questionnaire.id}" />
+						<td colspan="3" style="vertical-align: middle;" th:text="${questionnaire.title}" />
+						<td colspan="10" style="vertical-align: middle;" th:text="${questionnaire.description}" />
+						<td>
+							<div class="btn-group float-right" role="group">
+								<div>
+									<form action="#" th:action="@{/questionnaires} + '/' + ${questionnaire.id}">
+										<button type="submit" class="btn btn-secondary">
+											Show
+										</button>
+									</form>
+								</div>
+								<div>
+									<form action="#" th:action="@{/questionnaires/{id}(id=${questionnaire.id})}">
+										<!-- 
+											The action URL is mutated after submitting the form according to
+											https://www.w3.org/TR/2011/WD-html5-20110525/association-of-controls-and-forms.html#submit-mutate-action
+											The browser will trash the existing "?..." part of hte URI and replace it with a new one based on your form.
+										-->
+										<input type="hidden" name="form"/>
+										<button class="btn btn-primary">
+											Edit
+										</button>
+									</form>
+								</div>
+								<div>
+									<form action="#" th:action="@{/questionnaires} + '/' + ${questionnaire.id}" method="post">
+										<input type="hidden" name="_method" value="DELETE" />
+										<button type="submit" class="btn btn-danger">
+											Delete
+										</button>
+									</form>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+</body>
+
+</html>

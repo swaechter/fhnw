@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:id="@+id/anchor"
+        android:layout_width="1dp"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/darker_gray" />
+
+    <fragment
+        android:id="@+id/main_container"
+        android:name="ch.fhnw.edu.emoba.ab3.MainFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_toLeftOf="@id/anchor"
+        tools:layout="@layout/fragment_main" />
+
+    <FrameLayout
+        android:id="@+id/helloworld_container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_toRightOf="@id/anchor" />
+</RelativeLayout>

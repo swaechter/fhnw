@@ -1,0 +1,15 @@
+{
+  "appenders": {
+    "out": { "type": "console" },
+    "logfile": {
+      "type": "file",
+      "filename": "logfile.log"
+    }
+  },
+  "categories": {
+    "default": { "appenders": [ "out" ], "level": "error" },
+    "app": { "appenders": [ "logfile", "out" ], "level": "debug" },
+    "server": { "appenders": [ "out" ], "level": "info" },
+    "controller": { "appenders": [ "logfile", "out" ], "level": "debug" }
+  }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: maincontent(~{::form})}">
+
+<head>
+    <title>flashcard show</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+
+<body>
+<form th:action="@{/questionnaires}" th:object="${questionnaire}" method="post">
+    <div class="form-group row">
+        <label class="col-md-2" for="title">Title:</label>
+        <div class="col-md-10">
+            <input type="text" id="title" class="form-control" th:field="*{title}" autofocus="autofocus" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-2" for="description">Description:</label>
+        <div class="col-md-10">
+            <input type="text" id="description" class="form-control" th:field="*{description}" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <a class="btn btn-default" th:href="@{/questionnaires}">Cancel</a>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>
+</body>
+
+</html>

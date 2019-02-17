@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>APM Servlet</title>
+        <meta name="description" content="Test servlet for the APM module">
+        <meta name="author" content="Simon Wächter">
+    </head>
+    <body>
+        <h1 style="text-align: center">APM Servlet</h1>
+        <div>
+            <h2>Host Information</h2>
+            <p>Hostname: <input type="text" disabled value="{{hostname}}"></p>
+        </div>
+        <div>
+            <h2>Read Store</h2>
+            <form method="get">
+                <table>
+                    <tr>
+                        <td>Storage:</td>
+                        <th><input type="text" name="id" value="{{id}}"></th>
+                        <th><input type="submit" value="Get"></th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="2"><textarea disabled name="text" style="resize: vertical;">{{text}}</textarea></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div>
+            <h2>Write Store</h2>
+            <form method="post">
+                <table>
+                    <tr>
+                        <td>Storage:</td>
+                        <th><input type="text" name="newid" value="{{id}}"></th>
+                        <th><input type="submit" value="Save"></th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="2"><textarea name="text" style="resize: vertical;">{{text}}</textarea></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+        <div>
+            <p>Proudly powered by: <a href="http://motherfuckingwebsite.com/">Motherfucking Website</a></p>
+        </div>
+    </body>
+</html>

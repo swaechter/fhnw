@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+    <context:property-placeholder location="classpath:application.properties"/>
+
+    <bean id="renderer1" class="ch.fhnw.edu.eaf.springioc.renderer.StandardOutRenderer">
+        <property name="messageProvider" ref="provider1"/>
+    </bean>
+
+    <bean id="renderer2" class="ch.fhnw.edu.eaf.springioc.renderer.StandardOutRenderer">
+        <property name="messageProvider" ref="provider2"/>
+    </bean>
+
+    <bean id="renderer3" class="ch.fhnw.edu.eaf.springioc.renderer.StandardOutRenderer">
+        <property name="messageProvider" ref="provider3"/>
+    </bean>
+
+    <bean id="provider1" class="ch.fhnw.edu.eaf.springioc.providers.GrueziProvider"/>
+
+    <bean id="provider2" class="ch.fhnw.edu.eaf.springioc.providers.HelloWorldProvider"/>
+
+    <bean id="provider3" class="ch.fhnw.edu.eaf.springioc.providers.ExternalizedHelloWorldMessageProvider">
+        <constructor-arg index="0" value="${helloworld.message}"/>
+    </bean>
+</beans>

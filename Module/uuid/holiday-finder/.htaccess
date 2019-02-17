@@ -1,0 +1,12 @@
+# Enable rewriting
+RewriteEngine On
+
+# Skip the app and vendor directories
+RewriteRule ^(app|vendor)($|/) - [L]
+
+# Skip existing files and directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rewrite the URL
+RewriteRule ^(.*)$ index.php [QSA,L]

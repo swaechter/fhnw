@@ -1,0 +1,5 @@
+# Build system
+build/
+
+# IDE from JetBrains
+.idea/

@@ -1,0 +1,8 @@
+{
+  "require": {
+    "doctrine/orm": "*",
+    "twig/twig": "*",
+    "components/jquery": "*",
+    "twbs/bootstrap": "*"
+  }
+}

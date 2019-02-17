@@ -1,0 +1,14 @@
+package ch.fhnw.swa.osgi.firstbundle.service;
+
+import ch.fhnw.swa.osgi.firstbundle.service.internal.ServiceIdHolder;
+
+public class SimpleService {
+
+	private final ServiceIdHolder serviceidholder;
+	
+	private SimpleService() {
+		this.serviceidholder = new ServiceIdHolder();
+	}
+	
+	String 
+}

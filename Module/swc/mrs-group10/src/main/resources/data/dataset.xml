@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+	<CLIENTS Id="1" Name="Meier" FirstName="Pia" />
+	<CLIENTS Id="2" Name="Locher" FirstName="Bernhard" />
+	<CLIENTS Id="3" Name="Meier" FirstName="Sami" />
+	<CLIENTS Id="4" Name="Müller" FirstName="Rita" />
+	<CLIENTS Id="5" Name="Meyer" FirstName="Daniela" />
+	<CLIENTS Id="6" Name="Frei" FirstName="Karin" />
+	<CLIENTS Id="7" Name="Otto" FirstName="Peter" />
+	<CLIENTS Id="8" Name="Senderos" FirstName="Albin" />
+	<CLIENTS Id="9" Name="Rieder" FirstName="Trury" />
+	<CLIENTS Id="10" Name="Sorg" FirstName="Manuela" />
+	<CLIENTS Id="11" Name="Schwaiger" FirstName="Wolfgang" />
+	<CLIENTS Id="12" Name="Müller" FirstName="Thekla" />
+	<CLIENTS Id="13" Name="Meier" FirstName="Titus" />
+
+	<MOVIES Id="1" Title="Lord of the Rings" ReleaseDate="2001-12-19"
+		IsRented="true" PriceCategory="2" />
+	<MOVIES Id="2" Title="Matrix" ReleaseDate="1999-03-31" IsRented="true"
+		PriceCategory="1" />
+	<MOVIES Id="3" Title="Matrix Reloaded" ReleaseDate="1999-01-01"
+		IsRented="true" PriceCategory="1" />
+	<MOVIES Id="4" Title="Eragorn" ReleaseDate="2004-08-04"
+		IsRented="false" PriceCategory="1" />
+	<MOVIES Id="5" Title="Batman" ReleaseDate="1999-05-12" IsRented="true"
+		PriceCategory="3" />
+	<MOVIES Id="6" Title="Live Free or Die Hard" ReleaseDate="2007-06-27"
+		IsRented="false" PriceCategory="3" />
+	<MOVIES Id="7" Title="Cloverfield" ReleaseDate="2008-01-18"
+		IsRented="false" PriceCategory="3" />
+	<MOVIES Id="8" Title="Juno" ReleaseDate="2007-12-25" IsRented="false"
+		PriceCategory="2" />
+	<MOVIES Id="9" Title="Sweeney Todd: The Demon Barber of Fleet Street"
+		ReleaseDate="2007-12-21" IsRented="true" PriceCategory="3" />
+	<MOVIES Id="10" Title="There Will Be Blood" ReleaseDate="2008-01-11"
+		IsRented="true" PriceCategory="3" />
+	<MOVIES Id="11" Title="No Country for Old Men" ReleaseDate="2007-11-21"
+		IsRented="false" PriceCategory="3" />
+	<MOVIES Id="12" Title="Rambo" ReleaseDate="2008-01-25" IsRented="false"
+		PriceCategory="3" />
+	<MOVIES Id="13" Title="Brokeback Mountain" ReleaseDate="2005-12-16"
+		IsRented="true" PriceCategory="3" />
+	<MOVIES Id="14" Title="27 Dresses" ReleaseDate="2008-01-18"
+		IsRented="false" PriceCategory="2" />
+	<MOVIES Id="15" Title="Meet the Spartans" ReleaseDate="2008-01-25"
+		IsRented="false" PriceCategory="3" />
+	<MOVIES Id="16" Title="The Bucket List" ReleaseDate="2008-01-11"
+		IsRented="false" PriceCategory="3" />
+	<MOVIES Id="17" Title="Untraceable" ReleaseDate="2008-01-25"
+		IsRented="false" PriceCategory="3" />
+	<MOVIES Id="18" Title="The Eye" ReleaseDate="2008-02-01"
+		IsRented="false" PriceCategory="3" />
+
+	<RENTALS Id="1" RentalDays="7" RentalDate="2007-06-09"
+		ClientId="1" MovieId="1" />
+	<RENTALS Id="2" RentalDays="11" RentalDate="2008-02-11"
+		ClientId="3" MovieId="5" />
+	<RENTALS Id="3" RentalDays="14" RentalDate="2008-02-12"
+		ClientId="10" MovieId="2" />
+	<RENTALS Id="4" RentalDays="17" RentalDate="2008-02-09"
+		ClientId="11" MovieId="3" />
+	<RENTALS Id="5" RentalDays="5" RentalDate="2008-01-01"
+		ClientId="2" MovieId="13" />
+	<RENTALS Id="6" RentalDays="3" RentalDate="2008-02-11"
+		ClientId="6" MovieId="9" />
+	<RENTALS Id="7" RentalDays="8" RentalDate="2008-02-12"
+		ClientId="11" MovieId="10" />
+</dataset>

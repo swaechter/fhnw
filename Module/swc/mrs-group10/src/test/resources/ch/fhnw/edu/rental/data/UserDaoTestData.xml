@@ -1,0 +1,7 @@
+<dataset>
+	<clients id="42" firstname="Micky" name="Mouse" />
+
+	<clients id="13" firstname="Donald" name="Duck" />
+
+	<clients id="9999999" firstname="Dagobert" name="Duck" />
+</dataset>

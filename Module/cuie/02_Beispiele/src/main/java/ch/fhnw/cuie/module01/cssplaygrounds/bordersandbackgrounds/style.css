@@ -1,0 +1,31 @@
+BordersAndBackgroundPane {
+    -fx-background-color: azure;
+    -fx-padding: 20;
+    -fx-spacing: 20;
+}
+
+.playground {
+    -fx-pref-height: 250;
+    -fx-pref-width: 250;
+    -fx-background-color: beige;
+}
+
+.backgroundPlayground {
+    -fx-background-color: #2dac0e, green, blue;
+    -fx-background-insets: 0, 20, 40;
+    -fx-background-radius: 20;
+}
+
+.borderPlayground {
+    -fx-border-color: red green blue yellow, yellow red green blue;
+    -fx-border-insets: 0, 5;
+    -fx-border-width: 5;
+}
+
+.borderAndBackgroundPlayground {
+    -fx-border-color: darkgray;
+    -fx-border-insets: 0;
+    -fx-border-width: 5;
+    -fx-background-image: url("/backgroundimages/carbonImage.png");
+}
+

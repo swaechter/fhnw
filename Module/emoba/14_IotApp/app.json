@@ -1,0 +1,14 @@
+{
+    "expo": {
+        "sdkVersion": "27.0.0",
+        "splash": {
+            "image": "./assets/images/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#808080"
+        },
+        "orientation": "portrait",
+        "android": {
+            "package": "ch.fhnw.emoba.lab.smartbuilding"
+        }
+    }
+}

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="drawModel" class="jdraw.std.StdDrawModel"/>
+
+	<bean id="drawView" class="jdraw.std.StdDrawView" singleton="false">
+		<constructor-arg><ref bean="drawModel"/></constructor-arg>
+	</bean>
+
+	<bean id="drawContext" class="jdraw.std.StdContext" singleton="false"
+		init-method="initGUI"
+	>
+		<constructor-arg ref="drawView"/>
+
+		<property name="width"><value>600</value></property>
+		<property name="height"><value>400</value></property>
+
+		<constructor-arg>
+			<list>	<!-- null represents a separator -->
+<!--
+				<ref bean="line"/>
+				<ref bean="rectangle"/>
+				<ref bean="oval"/>
+-->
+			</list>
+		</constructor-arg>
+	</bean>
+
+
+<!--
+	<bean id="rectangle" class="jdraw.figures.RectangleToolFactory">
+		<property name="name"><value>Rectangle</value></property>
+		<property name="iconName"><value>rectangle.png</value></property>
+	</bean>
+	
+	<bean id="line" class="jdraw.figures.LineToolFactory">
+		<property name="name"><value>Line</value></property>
+		<property name="iconName"><value>line.png</value></property>
+	</bean>
+
+	<bean id="oval" class="jdraw.figures.OvalToolFactory">
+		<property name="name"><value>Oval</value></property>
+		<property name="iconName"><value>oval.png</value></property>
+	</bean>
+-->
+
+</beans>

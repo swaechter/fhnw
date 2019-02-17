@@ -1,0 +1,8 @@
+package ch.fhnw.swa.osgi.firstbundle.client;
+
+public class SimpleClient {
+	
+	public SimpleClient() {
+		SimpleSer
+	}
+}

@@ -1,0 +1,5 @@
+add_subdirectory(mycp)
+add_subdirectory(myls)
+add_subdirectory(mymkdir)
+add_subdirectory(mymv)
+add_subdirectory(myrmdir)

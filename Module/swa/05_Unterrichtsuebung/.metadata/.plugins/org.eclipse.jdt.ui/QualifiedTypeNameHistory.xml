@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.StringBuffer"/>
+<fullyQualifiedTypeName name="ch.fhnw.swa.osgi.firstbundle.service.ServiceIdHolder"/>
+<fullyQualifiedTypeName name="ch.fhnw.swa.osgi.firstbundle.service.internal.ServiceIdHolder"/>
+<fullyQualifiedTypeName name="java.nio.BufferUnderflowException"/>
+<fullyQualifiedTypeName name="ch.fhnw.swa.osgi.firstbundle.client.SimpleClient"/>
+<fullyQualifiedTypeName name="ch.fhnw.swa.osgi.firstbundle.service.SimpleService"/>
+</qualifiedTypeNameHistroy>

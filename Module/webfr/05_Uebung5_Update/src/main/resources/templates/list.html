@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: maincontent(~{::section})}">
+
+<head>
+	<title>flashcard</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	 crossorigin="anonymous">
+</head>
+
+<body>
+	<section>
+		<a class="btn btn-success float-right" href="?form">
+			Add Questionnaire
+		</a>
+		<h3>Questionnaires</h3>
+		<div th:if="${questionnaires.isEmpty()}">
+			<h2 style="text-align: center">No Questionnaires found</h2>
+		</div>
+		<div style="padding-top: 10px;">
+			<table class="table table-condensed table-hover">
+				<tbody>
+					<tr th:each="questionnaire : ${questionnaires}">
+						<td colspan="1" style="vertical-align: middle;" th:text="${questionnaire.id}" />
+						<td colspan="3" style="vertical-align: middle;" th:text="${questionnaire.title}" />
+						<td colspan="10" style="vertical-align: middle;" th:text="${questionnaire.description}" />
+                        <td>
+                            <div class="btn-group float-right" role="group">
+                                <div>
+                                    <form action="#" th:action="@{/questionnaires} + '/' + ${questionnaire.id}" method="POST">
+                                        <input type="hidden" name="_method" value="DELETE"/>
+                                        <button type="submit" class="btn btn-danger" style="margin-left: 10px">
+                                            Delete
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="btn-group float-right" role="group">
+                                <div>
+                                    <form action="#" th:action="@{/questionnaires/update} + '/' + ${questionnaire.id}">
+                                        <button type="submit" class="btn btn-secondary" style="margin-left: 10px">
+                                            Update
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+							<div class="btn-group float-right" role="group">
+								<div>
+									<form action="#" th:action="@{/questionnaires} + '/' + ${questionnaire.id}">
+										<button type="submit" class="btn btn-primary" style="margin-left: 10px">
+											Show
+										</button>
+									</form>
+								</div>
+							</div>
+                        </td>
+                    </tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+# Build system
+target/
+
+# IDE from JetBrains
+.idea/
+*.iml
+
+# Build artifacts
+build/
+*.h
+*.log
+*.so

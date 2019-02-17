@@ -1,0 +1,12 @@
+
+.table-cell:hover {
+    -fx-background-color: red;
+}
+
+.scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: green;
+}
+
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color: blue;
+}

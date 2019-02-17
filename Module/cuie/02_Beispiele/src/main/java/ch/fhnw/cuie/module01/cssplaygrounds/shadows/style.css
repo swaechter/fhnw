@@ -1,0 +1,21 @@
+ShadowPane {
+    -fx-background-color: azure;
+    -fx-padding: 40;
+    -fx-spacing: 40;
+}
+
+.playground {
+    -fx-pref-height: 250;
+    -fx-pref-width: 250;
+    -fx-background-color: red;
+    -fx-background-radius: 10;
+}
+
+.dropShadowPlayground {
+    -fx-effect: dropshadow(gaussian, red, 40, 0.0, 0.0, 0.0);
+}
+
+.innerShadowPlayground {
+    -fx-effect: innershadow(gaussian, black, 30, 0.0, 0.0, 0.0);
+}
+

@@ -1,0 +1,21 @@
+{
+  "name": "helloworld",
+  "version": "1.0.0",
+  "description": "Initial node project",
+  "repository": "https://gitlab.fhnw.ch/webfr/worksheets/server/node/helloworld",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "dotenv-extended": "^2.3.0",
+    "express": "^4.16.4",
+    "log4js": "^3.0.6",
+    "mongoose": "^5.4.0"
+  }
+}

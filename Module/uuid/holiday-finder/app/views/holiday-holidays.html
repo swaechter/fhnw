@@ -1,0 +1,127 @@
+{% extends "index.html" %}
+
+{% block script %}
+<script>
+    $(document).ready(function () {
+        $('form.ratingform').submit(function (event) {
+            event.preventDefault();
+            alert("Die Bewertung wurde erfolgreich bearbeitet.");
+            $('#ratingmodel').modal('hide');
+        });
+    });
+</script>
+{% endblock %}
+{% block style %}
+<style>
+    .description {
+        height: 140px;
+        line-height: 20px;
+        overflow: hidden;
+    }
+</style>
+{% endblock %}
+{% block title %}Holidays{% endblock %}
+
+{% block content %}
+<h1>Meine Buchungen</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="list-group">
+                {% if bookings|length > 0 %}
+                {% for booking in bookings %}
+                <div class="row list-group-item">
+                    <div class="media col-md-3">
+                        <figure class="pull-left">
+                            <img class="media-object img-rounded img-responsive" src="http://placehold.it/350x250"
+                                 alt="placehold.it/350x250">
+                        </figure>
+                        <div class="text-center">
+                            <div>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </div>
+                            <p>Bewertung {{booking.getHoliday().getStars()}} / 5</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        {% if booking.getSurprise() == true %}
+                        <h4 class="list-group-item-heading">Überraschungsreise</h4>
+                        <p class="list-group-item-text description">Es können keine weiteren Angaben gemacht werden.</p>
+                        {% else %}
+                        <h4 class="list-group-item-heading">{{booking.getHoliday().getName()}}</h4>
+                        <p class="list-group-item-text description">{{booking.getHoliday().getDescription()}}</p>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <h2>{{booking.getPrice()}} CHF</h2>
+                        <p>Personen: {{booking.getPerson()}}</p>
+                        <p>Datum: {{booking.getStartDate()}} - {{booking.getEndDate()}}</p>
+                        <p>Kreditkarte: {{booking.getNumber()}}</p>
+                        {% if booking.getSurprise() == false %}
+                        <a class="btn btn-primary btn-lg btn-block"
+                           href="/holiday/normalholiday/{{booking.getHoliday().getId()}}">Details</a>
+                        {% endif %}
+                        <a href="#ratingmodel" role="button" class="btn btn-primary btn-lg btn-block"
+                           data-toggle="modal" data-book-id="{{booking.getId()}}" rel="tooltip">Bewerten</a>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="row list-group-item">
+                    <div class="col-md-12">
+                        <p>Sie verfügen über noch keine gebuchten Ferienangebote.</p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="ratingmodel" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Schliessen</span>
+                    </button>
+                    <h4 class="modal-title">Bewerten</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal ratingform" role="form" name="ratingform" action="#" method="post">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <p>Bitte bewerten Sie Ihr Ferienangebot.</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="stars">Sterne</label>
+                            <select id="stars" name="stars" required>
+                                <option value="1">1 Stern</option>
+                                <option value="2">2 Sterne</option>
+                                <option value="3">3 Sterne</option>
+                                <option value="4">4 Sterne</option>
+                                <option value="5">5 Sterne</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="comment">Kommentar</label>
+                            <div class="col-sm-10" id="comment" name="comment">
+                                <textarea class="form-control" rows="7"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Speichern</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

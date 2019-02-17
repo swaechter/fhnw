@@ -1,0 +1,7 @@
+package ch.fhnw.swa.osgi.firstbundle.client;
+
+import org.osgi.framework.BundleActivator;
+
+public class Activator implements BundleActivator {
+
+}

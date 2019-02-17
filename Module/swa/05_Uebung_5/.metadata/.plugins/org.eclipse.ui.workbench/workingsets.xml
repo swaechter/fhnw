@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1490793597632_1" label="ch.fhnw.swa.restaurant" name="ch.fhnw.swa.restaurant">
+<item elementID="=ch.fhnw.swa.restaurant.simulation 1.0.0" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=ch.fhnw.swa.restaurant.client 1.0.0" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1490793537877_0" label="Window Working Set" name="Aggregate for window 1490793537876"/>
+<mruList name="ch.fhnw.swa.restaurant"/>
+</workingSetManager>

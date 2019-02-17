@@ -1,0 +1,11 @@
+# Existing ignores
+.gradle
+local.properties
+.DS_Store
+build
+captures
+.externalNativeBuild
+
+# IDE
+.idea/
+*.iml

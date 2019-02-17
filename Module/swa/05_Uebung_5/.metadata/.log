@@ -1,0 +1,24 @@
+!SESSION 2017-03-29 15:18:51.601 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_121
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.rcp.product
+Command-line arguments:  -data /home/swaechter/Downloads/fhnw/Module/swa/05_Uebung_5 -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.rcp.product
+
+!ENTRY org.eclipse.ui 4 4 2017-03-29 15:18:57.228
+!MESSAGE Referenced part does not exist yet: org.eclipse.jdt.ui.PackageExplorer.
+
+!ENTRY org.eclipse.ui.monitoring 2 0 2017-03-30 16:27:42.025
+!MESSAGE UI freeze of 0.65s at 16:27:41.369
+(no stack samples were collected because the monitoring thread starved for CPU)
+
+!ENTRY org.eclipse.ui.monitoring 4 0 2017-03-30 18:12:55.935
+!MESSAGE UI freeze that started at 17:27:53.182 is still ongoing after 2701s
+
+!ENTRY org.eclipse.ui.monitoring 4 0 2017-03-30 18:12:56.088
+!MESSAGE UI freeze of 2701s at 17:27:53.182
+
+!ENTRY org.eclipse.ui.monitoring 2 0 2017-03-30 18:21:27.008
+!MESSAGE UI freeze of 0.76s at 18:21:26.247
+(no stack samples were collected because the monitoring thread starved for CPU)
