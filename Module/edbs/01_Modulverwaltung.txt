@@ -1,0 +1,28 @@
+Student
+- Vorname
+- Nachname
+
+Dozent
+- Vorname
+- Nachname
+
+Modul
+- Name
+- Beschreibung
+- Verantwortlicher Dozent
+
+Semester
+- Bezeichnung
+
+Modulanlass
+- Semester
+- Modul
+
+Unterrichtender
+- Modulanlass
+- Unterrichtender Dozent
+
+Moduleinschreibung
+- Modulanlass
+- Student
+- Note
