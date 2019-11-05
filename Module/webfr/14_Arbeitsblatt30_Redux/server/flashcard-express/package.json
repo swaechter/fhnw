@@ -17,6 +17,6 @@
     "dotenv-extended": "^2.3.0",
     "express": "^4.16.4",
     "log4js": "^3.0.6",
-    "mongoose": "^5.3.15"
+    "mongoose": "^5.7.5"
   }
 }
