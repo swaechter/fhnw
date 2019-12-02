@@ -177,3 +177,65 @@ scp arch/arm/boot/dts/imx6dl-wandboard.dtb root@192.168.254.254:/boot/dtbs/5.3.1
 # DebugFS verwenden
 mount -t debugfs debugfs /sys/kernel/debug
 cat /sys/kernel/debug/gpio
+
+# Tastapplikation bauen
+cd 05_gpio-test
+make clean
+make all
+make install
+
+# Woche 6
+
+# Reaktionszeitapplikation bauen
+cd 06_reaktionszeit
+make clean
+make all
+make install
+
+# Woche 7
+
+# httpd konfigurieren und kompilieren
+cd /opt/ebssd/buildroot
+make busybox-menuconfig (Networking Utilities)
+make
+
+# httpd kopieren
+scp output/target/bin/busybox root@192.168.254.254:/bin/busybox2
+Via ssh dann: mv /bin/busybox2 /bin/busybox
+
+# Symlink erstellen
+ln -s busybox /bin/httpd
+
+# Webseite erstellen und Webserver starten
+nano /srv/www/index.html
+httpd -h /srv/www/
+
+# CGI Skript erstellen
+nano /srv/www/cgi-bin/show-procinfo.cgi
+chmod +x /srv/www/cgi-bin/show-procinfo.cgi
+
+# Datei /etc/shadown anzeigen lassen
+wget http://192.168.254.254/cgi-bin/show-procinfo.cgi?info=../etc/shadow
+
+# Webserver absichern
+adduser httpd --shell=/bin/false
+httpd -f -u 1000:1000 -h /srv/www/
+
+# Woche 8
+
+# Treiber kopieren und installieren
+make
+Via ssh dann: insmod /tmp/mod_hrtimer_dev.ko
+Via ssh danach: dmesg, um Major Node herauszufinden
+
+# Device Node manuell erstellen
+mknod -m 666 /dev/mod_hrtimer_dev c <node> 0
+
+# Schreiben und lesen vom Modul
+echo 'hoffentlich klapps!' > /dev/mod_hrtimer_dev
+cat /dev/mod_hrtimer_dev
+
+# udev Regel setzen
+mkdir -p /etc/udev/rules.d/
+echo 'SUBSYSTEM=="mod_hrtimer_dev", MODE="0666"' > /etc/udev/rules.d/99-ebssd-mod-hrtimer.rules
+udevadm control --reload-rules
